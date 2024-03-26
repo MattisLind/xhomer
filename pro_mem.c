@@ -163,7 +163,6 @@ void pro_mem_wr (int data, int pa, int access)
 			/* Update CPU memory decoder */
 			iotable[1].low = pro_mem_base;
 			iotable[1].high = ((pro_mem_base + PRO_MEM_MEMSIZE - 1) > 013777777)?013777777:(pro_mem_base + PRO_MEM_MEMSIZE - 1);
-			printf ("low=%08o high=%08o\n", iotable[1].low, iotable[1].high );
 			break;
 		case 017775006:							// Control/status register
 			WRITE_WB(pro_mem_csr, 0377, access);
