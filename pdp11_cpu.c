@@ -301,7 +301,7 @@ struct iolink iotable[] = {
 	/* XXX define non-existent RAM as NXM? */
 
 	/* Note supervisor PDRs/PARs are disabled */
-
+	{ 014000000, 014077777, &pro_vmem_rd, &pro_vmem_wr },
 	{ 017777600, 017777617, &APR_rd, &APR_wr },	/* user PDRs */
 	{ 017777640, 017777657, &APR_rd, &APR_wr },	/* user PARs */
 	{ 017772300, 017772317, &APR_rd, &APR_wr },	/* kernel PDRs */

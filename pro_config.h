@@ -21,7 +21,7 @@
 
 /* Base system memory size */
 
-#define PRO_BASE_1M		1	/* 0=256K 1=1M */
+#define PRO_BASE_1M		0	/* 0=256K 1=1M */
 
 /* Installed boards */
 
@@ -29,4 +29,4 @@
 #define PRO_RX_PRESENT		1	/* RX floppy disk controller */
 #define PRO_VID_PRESENT		1	/* standard graphics board */
 #define PRO_EBO_PRESENT		1	/* extended bitmap option board */
-#define PRO_MEM_PRESENT		0	/* memory expansion board emulation is incomplete */
+#define PRO_MEM_PRESENT		1	/* memory expansion board emulation is incomplete */

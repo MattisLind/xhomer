@@ -146,6 +146,7 @@ int	vindex;
 	      /* XXX all disabled - return 0? */
 
 	      *data = PRO_NOREG;
+		  return SCPE_NXM;
 	      break;
 
 	    case 01:
@@ -186,7 +187,7 @@ int	vindex;
 int pro_vram_wr (int data, int pa, int access)
 {
 int	vindex;
-
+	if (pro_vid_plane_en == 0) return SCPE_NXM;
 	if ((pa & 017700000) == pro_vid_mem_base)
 	{
 	  vindex = vmem((pa-pro_vid_mem_base) >> 1);

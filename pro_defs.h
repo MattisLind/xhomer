@@ -198,6 +198,7 @@ struct sercall
 /* Memory expansion board */
 
 #define PRO_MEM_CMD_W		0000207
+#define PRO_MEM_MBR_W       0000377
 
 /* Clock constants */
 
@@ -689,6 +690,8 @@ GLOBAL void pro_vid_eq(void);
 GLOBAL void pro_vid_cmd_eq(void);
 GLOBAL int pro_vram_rd(int *data, int pa, int access);
 GLOBAL int pro_vram_wr(int data, int pa, int access);
+GLOBAL int pro_vmem_rd(int *data, int pa, int access);
+GLOBAL int pro_vmem_wr(int data, int pa, int access);
 GLOBAL int pro_vid_rd(int pa);
 GLOBAL void pro_vid_wr(int data, int pa, int access);
 GLOBAL void pro_vid_reset(void);
@@ -726,7 +729,7 @@ GLOBAL void pro_rx_exit(void);
 
 /* pro_mem.c */
 
-GLOBAL unsigned short MEMROM[1024];
+GLOBAL unsigned char MEMROM[2048];
 GLOBAL int pro_mem_rd(int pa);
 GLOBAL void pro_mem_wr(int data, int pa, int access);
 GLOBAL void pro_mem_reset(void);

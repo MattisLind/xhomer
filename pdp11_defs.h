@@ -31,7 +31,7 @@
 
 /* XXX IOPAGEBASE changed for PRO */
 #ifdef PRO
-#define IOPAGEBASE	014000000			/* XXX kludge for video */
+#define IOPAGEBASE	INIMEMSIZE			/* XXX kludge for video */
 /*
 #define IOPAGEBASE	017730000
 */
