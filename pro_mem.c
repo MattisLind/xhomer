@@ -17,7 +17,9 @@
    along with Xhomer; if not, write to the Free Software
    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
-
+/* Patched to work together with my patched version of mem.rom to provide
+   3 meg of memory - Mattis Lind
+*/
 /*
 MSC11-CK - 256Kb MEMORY MODULE FOR PC350. HAS 000034 ON HANDLE (Card ID)
 
