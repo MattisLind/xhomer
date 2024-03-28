@@ -21,7 +21,7 @@
 
 /* Base system memory size */
 
-#define PRO_BASE_1M		0	/* 0=256K 1=1M */
+#define PRO_BASE_1M		1	/* 0=256K 1=1M */
 
 /* Installed boards */
 

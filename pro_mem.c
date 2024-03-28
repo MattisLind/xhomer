@@ -38,13 +38,8 @@ struct iolink {
 
 extern struct iolink iotable[]; /* from pdp11_cpu */
 
-/* size of MEM banks buffer (via RAM memory bank jumper set scheme) */
-//#define PRO_MEM_MEMSIZE	128 * 1024		// 128 Kb - half populated RAM board
-//#define PRO_MEM_MEMSIZE		256 * 1024		// 256 Kb - full populated RAM board
-//#define PRO_MEM_MEMSIZE     512 * 1024
-//#define PRO_MEM_MEMSIZE    1024 * 1024
-//#define PRO_MEM_MEMSIZE    2 * 1024 * 1024
-#define PRO_MEM_MEMSIZE    4 * 1024 * 1024
+#define PRO_NUM_BANKS 64  // Number of 32k banks
+#define PRO_MEM_MEMSIZE  PRO_NUM_BANKS * 32768
 int PRO_MEM_VRAM[PRO_MEM_MEMSIZE];
 
 unsigned char MEMROM[2048];
@@ -176,13 +171,7 @@ void pro_mem_reset ()
 	pro_mem_ptr = 0;
 	pro_mem_mbr = 0;
 	pro_mem_base = 0;
-	if (PRO_MEM_MEMSIZE	== 128 * 1024)
-		pro_mem_csr = 000; // when board is fully populated with RAM chips
-	else if (PRO_MEM_MEMSIZE == 2 * 1024 * 1024 ) 
-		pro_mem_csr = 000; // when board is half populated with RAM chips
-	else if (PRO_MEM_MEMSIZE == 4 * 1024 * 1024 ) 
-		pro_mem_csr = 040;
-	else pro_mem_csr = 060;
+	pro_mem_csr = (PRO_NUM_BANKS - 1) << 1;
 	memset(PRO_MEM_VRAM, 0, PRO_MEM_MEMSIZE);
 	
 	/* Update CPU memory decoder (as initialy hardcoded in pdp11_cpu) */
